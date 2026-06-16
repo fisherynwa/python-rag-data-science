@@ -1,4 +1,10 @@
 # Python Data Extraction RAG
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org)
+[![Topic: RAG](https://img.shields.io/badge/Topic-RAG%20%2F%20AI-orange)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)
+[![GitHub issues](https://img.shields.io/github/issues/fisherynwa/python-rag-datascience?color=red)](https://github.com/fisherynwa/python-rag-datascience/issues)
+[![GitHub forks](https://img.shields.io/github/forks/fisherynwa/python-rag-datascience?style=social)](https://github.com/fisherynwa/python-rag-datascience/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/fisherynwa/python-rag-datascience?style=social)](https://github.com/fisherynwa/python-rag-datascience/stargazers)
 
 A retrieval-augmented generation (RAG) system that answers Python data-extraction
 questions (pandas, CSV/JSON, scikit-learn) by grounding a local LLM in a corpus of
@@ -87,7 +93,7 @@ share that fit *whole* inside each candidate chunk size:
 | **512**    | **69%**             |
 | 1024       | 91%                 |
 
-**Why 512.** At 256, 78% of documents would be split, for code answers, that often
+Why 512. At 256, 78% of documents would be split, for code answers, that often
 means cutting a code block in half, so the model retrieves a fragment without the rest.
 At 512, two-thirds of documents stay intact while only the longest are split. Smaller
 chunks give sharper embeddings (more precise retrieval) but split more documents;
