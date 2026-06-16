@@ -1,0 +1,3 @@
+[2026-06-07 20:15:00,652][datasets][INFO] - PyTorch version 2.12.0+cpu available.
+[2026-06-07 20:15:03,356][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+[2026-06-07 20:15:03,392][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"

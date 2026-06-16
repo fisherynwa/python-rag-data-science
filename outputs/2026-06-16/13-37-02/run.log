@@ -1,0 +1,83 @@
+[2026-06-16 13:37:02,728][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-16 13:37:02,755][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-16 13:37:02,759][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-16 13:37:02,759][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-16 13:37:05,551][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-16 13:37:05,592][src.pipeline][INFO] - RAGPipeline ready model=llama3.2:1b, top_k=3, alpha=0.75
+[2026-06-16 13:37:05,600][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 13:37:05,603][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 13:37:05,604][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-16 13:37:05,604][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=20, seed=42)
+[2026-06-16 13:37:08,950][src.fetcher][INFO] - Loaded 20 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-16 13:37:08,951][__main__][INFO] - Fetched 20 docs → 21 chunks
+[2026-06-16 13:37:08,954][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 13:37:08,974][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 13:37:08,974][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-16 13:37:08,977][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-16 13:37:09,154][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-16 13:37:09,155][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-16 13:37:09,155][src.indexer][INFO] - Generating embeddings...
+[2026-06-16 13:37:10,100][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-16 13:37:10,103][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 13:37:11,171][src.indexer][INFO] - Indexed 21 chunks into 'PythonDocs' ✓
+[2026-06-16 13:37:11,172][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-16 13:37:21,154][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:37:38,715][src.evaluate][INFO] - Running RAGAS... (chunk1024_ov128_a0.75, judge=qwen2.5:1.5b, embed=nomic-embed-text, timeout=90s)
+[2026-06-16 13:37:38,752][src.evaluate][INFO] - Loaded 5 eval questions from data/eval.yaml
+[2026-06-16 13:37:38,753][src.evaluate][INFO] -   Q: How do I read a CSV file with pandas?
+[2026-06-16 13:37:38,753][src.pipeline][INFO] - Query: How do I read a CSV file with pandas?
+[2026-06-16 13:37:43,977][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:38:00,902][src.evaluate][INFO] -   Q: How do I handle missing values in a pandas DataFrame?
+[2026-06-16 13:38:00,903][src.pipeline][INFO] - Query: How do I handle missing values in a pandas DataFrame?
+[2026-06-16 13:38:05,902][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:38:35,796][src.evaluate][INFO] -   Q: How do I filter rows in a pandas DataFrame?
+[2026-06-16 13:38:35,797][src.pipeline][INFO] - Query: How do I filter rows in a pandas DataFrame?
+[2026-06-16 13:38:40,894][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:39:05,387][src.evaluate][INFO] -   Q: How do I merge two pandas DataFrames?
+[2026-06-16 13:39:05,388][src.pipeline][INFO] - Query: How do I merge two pandas DataFrames?
+[2026-06-16 13:39:11,135][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:39:35,780][src.evaluate][INFO] -   Q: How do I group data and calculate statistics in pandas?
+[2026-06-16 13:39:35,780][src.pipeline][INFO] - Query: How do I group data and calculate statistics in pandas?
+[2026-06-16 13:39:40,253][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:40:32,594][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:40:35,878][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:40:40,461][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:40:44,256][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:40:48,886][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:40:52,820][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:58:57,338][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:58:59,097][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:01,233][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:09,064][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:09,210][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:17,785][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:19,578][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:21,515][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:23,659][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:23,863][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:33,191][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:34,894][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:36,599][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:38,233][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:38,401][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:48,753][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:50,194][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:52,073][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 13:59:54,457][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 13:59:54,702][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 14:00:02,032][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:03,999][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:06,056][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:07,997][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 14:00:08,216][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 14:00:10,122][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:14,555][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:18,572][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:22,872][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:26,626][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:30,758][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:36,277][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:39,914][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:43,518][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:00:47,007][src.evaluate][INFO] - RAGAS scores: {'answer_relevancy': 0.1833, 'context_precision': 0.4}
+[2026-06-16 14:00:47,457][src.indexer][INFO] - Weaviate connection closed

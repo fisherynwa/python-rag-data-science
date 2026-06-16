@@ -1,0 +1,303 @@
+[2026-06-16 15:28:00,255][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-16 15:28:00,282][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-16 15:28:00,286][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-16 15:28:00,286][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-16 15:28:02,363][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-16 15:28:02,403][src.pipeline][INFO] - RAGPipeline ready model=qwen2.5:1.5b, top_k=3, alpha=0.75
+[2026-06-16 15:28:02,409][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 15:28:02,411][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 15:28:02,412][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-16 15:28:02,413][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=200, seed=42)
+[2026-06-16 15:28:04,765][src.fetcher][INFO] - Loaded 200 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-16 15:28:04,771][__main__][INFO] - Fetched 200 docs → 359 chunks
+[2026-06-16 15:28:04,773][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 15:28:04,791][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 15:28:04,791][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-16 15:28:04,792][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-16 15:28:04,965][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-16 15:28:04,966][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-16 15:28:04,967][src.indexer][INFO] - Generating embeddings...
+[2026-06-16 15:28:13,505][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-16 15:28:13,516][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 15:28:14,682][src.indexer][INFO] - Indexed 359 chunks into 'PythonDocs' ✓
+[2026-06-16 15:28:14,682][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-16 15:28:23,749][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:28:35,864][src.evaluate][INFO] - Running RAGAS... (chunk512_ov64_a0.75, judge=llama3.2:1b, embed=nomic-embed-text, timeout=90s)
+[2026-06-16 15:28:35,913][src.evaluate][INFO] - Loaded 25 eval questions from data/eval.yaml
+[2026-06-16 15:28:35,914][src.evaluate][INFO] -   Q: Design a computer program in Python to store and search for 
+[2026-06-16 15:28:35,914][src.pipeline][INFO] - Query: Design a computer program in Python to store and search for items in a shopping 
+[2026-06-16 15:28:40,369][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:28:57,591][src.evaluate][INFO] -   Q: Write a python program that calculates the average age of a 
+[2026-06-16 15:28:57,591][src.pipeline][INFO] - Query: Write a python program that calculates the average age of a group of people.
+[2026-06-16 15:29:01,655][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:29:15,206][src.evaluate][INFO] -   Q: Write a Python program to analyze the sentiment of a text do
+[2026-06-16 15:29:15,207][src.pipeline][INFO] - Query: Write a Python program to analyze the sentiment of a text document using Natural
+[2026-06-16 15:29:19,689][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:29:38,716][src.evaluate][INFO] -   Q: Create a Python function to return all valid permutation of 
+[2026-06-16 15:29:38,716][src.pipeline][INFO] - Query: Create a Python function to return all valid permutation of a given string
+[2026-06-16 15:29:43,255][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:29:49,909][src.evaluate][INFO] -   Q: Create a Python program that finds the low and high stock pr
+[2026-06-16 15:29:49,910][src.pipeline][INFO] - Query: Create a Python program that finds the low and high stock prices from a given ar
+[2026-06-16 15:29:55,833][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:30:04,744][src.evaluate][INFO] -   Q: Design a Python function that generates a password string fr
+[2026-06-16 15:30:04,745][src.pipeline][INFO] - Query: Design a Python function that generates a password string from random alphabets,
+[2026-06-16 15:30:09,078][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:30:25,302][src.evaluate][INFO] -   Q: Generate a python program to print out all the factors of a 
+[2026-06-16 15:30:25,302][src.pipeline][INFO] - Query: Generate a python program to print out all the factors of a number n.
+[2026-06-16 15:30:30,025][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:30:33,430][src.evaluate][INFO] -   Q: This code is a controller for a differential drive. To use i
+[2026-06-16 15:30:33,431][src.pipeline][INFO] - Query: This code is a controller for a differential drive. To use it, you need to creat
+[2026-06-16 15:30:39,770][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:30:51,529][src.evaluate][INFO] -   Q: Debug the given Python code.
+[2026-06-16 15:30:51,529][src.pipeline][INFO] - Query: Debug the given Python code.
+[2026-06-16 15:30:54,314][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:30:57,114][src.evaluate][INFO] -   Q: Create a Python script which connects to a MySQL database, r
+[2026-06-16 15:30:57,114][src.pipeline][INFO] - Query: Create a Python script which connects to a MySQL database, runs a query and outp
+[2026-06-16 15:31:01,496][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:31:21,232][src.evaluate][INFO] -   Q: Design a class in Python to generate a stack with a set of o
+[2026-06-16 15:31:21,233][src.pipeline][INFO] - Query: Design a class in Python to generate a stack with a set of operations.
+[2026-06-16 15:31:26,290][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:31:35,661][src.evaluate][INFO] -   Q: Create a Python program to generate the powers of two up to 
+[2026-06-16 15:31:35,661][src.pipeline][INFO] - Query: Create a Python program to generate the powers of two up to a given number.
+[2026-06-16 15:31:40,939][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:31:47,814][src.evaluate][INFO] -   Q: Classify the following statement as true or false. The follo
+[2026-06-16 15:31:47,814][src.pipeline][INFO] - Query: Classify the following statement as true or false. The following statement is a 
+[2026-06-16 15:31:54,336][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:31:54,395][src.evaluate][INFO] -   Q: Generate a python program which finds the most frequent word
+[2026-06-16 15:31:54,395][src.pipeline][INFO] - Query: Generate a python program which finds the most frequent word in a sentence.
+[2026-06-16 15:32:01,129][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:32:09,121][src.evaluate][INFO] -   Q: Modify the Python program to calculate the sum of an array s
+[2026-06-16 15:32:09,122][src.pipeline][INFO] - Query: Modify the Python program to calculate the sum of an array so that it finds the 
+[2026-06-16 15:32:16,846][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:32:39,094][src.evaluate][INFO] -   Q: The code creates required directories and moves files to a s
+[2026-06-16 15:32:39,095][src.pipeline][INFO] - Query: The code creates required directories and moves files to a specific directory. T
+[2026-06-16 15:32:44,629][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:33:12,308][src.evaluate][INFO] -   Q: Create a Python program that uses the NLTK package to classi
+[2026-06-16 15:33:12,309][src.pipeline][INFO] - Query: Create a Python program that uses the NLTK package to classify a sentence as neg
+[2026-06-16 15:33:17,890][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:33:38,284][src.evaluate][INFO] -   Q: Perform classification on the given dataset using Support Ve
+[2026-06-16 15:33:38,285][src.pipeline][INFO] - Query: Perform classification on the given dataset using Support Vector Machines in Pyt
+[2026-06-16 15:33:42,735][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:33:53,731][src.evaluate][INFO] -   Q: Design a function to calculate the mean, median and mode of 
+[2026-06-16 15:33:53,732][src.pipeline][INFO] - Query: Design a function to calculate the mean, median and mode of a given array in Pyt
+[2026-06-16 15:34:00,943][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:34:11,286][src.evaluate][INFO] -   Q: Generate a python code to rotate an array by k steps.
+[2026-06-16 15:34:11,287][src.pipeline][INFO] - Query: Generate a python code to rotate an array by k steps.
+[2026-06-16 15:34:16,188][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:34:25,026][src.evaluate][INFO] -   Q: Think of a data structure and implement it using Python.
+[2026-06-16 15:34:25,027][src.pipeline][INFO] - Query: Think of a data structure and implement it using Python.
+[2026-06-16 15:34:29,595][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:34:50,115][src.evaluate][INFO] -   Q: Write a python code to extract the year from a string.
+[2026-06-16 15:34:50,116][src.pipeline][INFO] - Query: Write a python code to extract the year from a string.
+[2026-06-16 15:34:55,232][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:35:02,978][src.evaluate][INFO] -   Q: Create a function in Python to generate a random matrix of s
+[2026-06-16 15:35:02,979][src.pipeline][INFO] - Query: Create a function in Python to generate a random matrix of size (m, n).
+[2026-06-16 15:35:06,923][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:35:09,948][src.evaluate][INFO] -   Q: Create a Python script which calculate the sum of all even n
+[2026-06-16 15:35:09,949][src.pipeline][INFO] - Query: Create a Python script which calculate the sum of all even numbers from 0 to 100
+[2026-06-16 15:35:14,205][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:35:16,466][src.evaluate][INFO] -   Q: Create a Python list that contains strings ["apple", "banana
+[2026-06-16 15:35:16,467][src.pipeline][INFO] - Query: Create a Python list that contains strings ["apple", "banana", "lemon", "mango"]
+[2026-06-16 15:35:20,407][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:35:44,989][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:35:54,558][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:36:03,452][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:36:28,407][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:36:30,117][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 15:36:30,502][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:36:32,078][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 15:36:32,401][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:36:33,988][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 15:36:51,834][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:36:59,338][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:05,615][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:08,383][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:11,894][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:14,924][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:20,112][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:25,691][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:37:31,084][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:00,542][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:09,361][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:11,635][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:13,818][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:30,132][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:38:30,744][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:38:37,289][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:40,368][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:43,149][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:45,439][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:38:45,647][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:38:49,043][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:54,272][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:38:59,086][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:07,187][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:14,368][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:21,082][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:35,040][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:36,644][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:38,343][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:39,741][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:39:39,888][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:39:45,270][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:39:48,617][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:40:04,805][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:40:31,179][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:40:34,330][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:40:37,123][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:40:37,355][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:40:44,437][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:40:55,022][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:03,999][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:12,325][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:41:12,413][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:41:14,222][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:17,669][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:21,385][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:24,985][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:31,390][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:35,230][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:41:42,619][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:00,745][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:16,586][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:32,404][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:42:32,522][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:42:34,565][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:38,869][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:42,979][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:48,179][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:42:57,591][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:04,339][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 15:43:07,448][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:12,583][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:13,844][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 15:43:16,824][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:21,005][ragas.executor][ERROR] - Runner in Executor raised an exception
+Traceback (most recent call last):
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py", line 78, in _aresults
+    r = await future
+        ^^^^^^^^^^^^
+  File "/home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+    return f.result()  # May raise f.exception().
+           ^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py", line 37, in sema_coro
+    return await coro
+           ^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py", line 111, in wrapped_callable_async
+    return counter, await callable(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/metrics/base.py", line 125, in ascore
+    raise e
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/metrics/base.py", line 121, in ascore
+    score = await self._ascore(row=row, callbacks=group_cm, is_async=is_async)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/metrics/_context_precision.py", line 183, in _ascore
+    answers = ContextPrecisionVerifications(__root__=answers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/pydantic/v1/main.py", line 364, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 4 validation errors for ContextPrecisionVerifications
+__root__ -> 0 -> reason
+  field required (type=value_error.missing)
+__root__ -> 0 -> verdict
+  field required (type=value_error.missing)
+__root__ -> 1 -> reason
+  field required (type=value_error.missing)
+__root__ -> 1 -> verdict
+  field required (type=value_error.missing)
+[2026-06-16 15:43:23,323][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:27,054][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:30,662][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:35,559][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:37,007][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:38,525][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:40,006][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:43:40,160][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:43:42,714][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:45,950][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:49,414][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:52,762][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:43:52,908][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:43:54,987][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:43:59,461][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:04,086][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:15,250][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:17,330][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:19,792][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:22,392][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:44:22,579][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:44:27,905][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:35,017][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:40,803][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:44:46,461][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:44:46,594][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:44:56,029][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:06,317][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:16,436][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:26,651][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:45:26,857][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:45:28,439][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:31,598][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:39,143][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:44,491][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:52,774][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:45:57,394][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:06,691][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:10,051][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:12,834][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:15,320][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:46:15,437][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:46:17,206][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:21,961][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:26,120][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:30,250][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:35,031][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:38,930][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:42,582][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 15:46:44,086][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:46:49,485][ragas.executor][ERROR] - Runner in Executor raised an exception
+Traceback (most recent call last):
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py", line 78, in _aresults
+    r = await future
+        ^^^^^^^^^^^^
+  File "/home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py", line 631, in _wait_for_one
+    return f.result()  # May raise f.exception().
+           ^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py", line 37, in sema_coro
+    return await coro
+           ^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py", line 111, in wrapped_callable_async
+    return counter, await callable(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/metrics/base.py", line 125, in ascore
+    raise e
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/metrics/base.py", line 121, in ascore
+    score = await self._ascore(row=row, callbacks=group_cm, is_async=is_async)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/metrics/_context_precision.py", line 183, in _ascore
+    answers = ContextPrecisionVerifications(__root__=answers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/pydantic/v1/main.py", line 364, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 2 validation errors for ContextPrecisionVerifications
+__root__ -> 1 -> reason
+  field required (type=value_error.missing)
+__root__ -> 1 -> verdict
+  field required (type=value_error.missing)
+[2026-06-16 15:46:56,817][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:04,635][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:12,934][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:19,805][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:21,079][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:22,591][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:24,330][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:47:24,449][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:47:26,464][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:31,466][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:35,885][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:39,943][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:47:40,073][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[2026-06-16 15:47:41,637][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:47,378][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 15:47:50,049][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 16:01:07,270][src.indexer][INFO] - Weaviate connection closed

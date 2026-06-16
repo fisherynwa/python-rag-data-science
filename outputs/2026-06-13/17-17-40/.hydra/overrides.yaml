@@ -1,0 +1,2 @@
+- chunker.chunk_size=256
+- chunker.overlap=32

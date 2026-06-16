@@ -1,0 +1,21 @@
+# data/eval.yaml
+questions:
+  - question: "How do I read a CSV file with pandas?"
+    ground_truth: "Use pd.read_csv('file.csv') to load a CSV into a DataFrame."
+    weight: 1.0
+
+  - question: "How do I handle missing values in a pandas DataFrame?"
+    ground_truth: "Use df.fillna() to fill or df.dropna() to remove missing values."
+    weight: 1.0
+
+  - question: "How do I filter rows in a pandas DataFrame?"
+    ground_truth: "Use boolean indexing: df[df['column'] > value] or df.query()."
+    weight: 1.5
+
+  - question: "How do I merge two pandas DataFrames?"
+    ground_truth: "Use pd.merge(df1, df2, on='column') with how parameter for join type."
+    weight: 1.5
+
+  - question: "How do I group data and calculate statistics in pandas?"
+    ground_truth: "Use df.groupby('column').agg({'col': 'sum'}) or describe()."
+    weight: 2.0

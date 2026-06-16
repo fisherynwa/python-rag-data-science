@@ -1,0 +1,3 @@
+- fetcher.max_rows=200
+- chunker.chunk_size=512
+- chunker.overlap=64

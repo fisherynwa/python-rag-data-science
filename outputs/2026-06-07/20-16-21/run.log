@@ -1,0 +1,11 @@
+[2026-06-07 20:16:29,676][datasets][INFO] - PyTorch version 2.12.0+cpu available.
+[2026-06-07 20:16:30,078][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-07 20:16:30,082][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-07 20:16:30,086][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-07 20:16:30,086][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-07 20:16:32,062][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-07 20:16:32,773][src.pipeline][INFO] - RAGPipeline ready model=llama3.2, top_k=3, alpha=0.75
+[2026-06-07 20:16:32,773][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-07 20:16:33,004][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-07 20:16:33,007][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-07 20:16:33,008][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs

@@ -1,0 +1,66 @@
+[2026-06-16 14:34:18,245][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-16 14:34:18,274][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-16 14:34:18,278][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-16 14:34:18,278][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-16 14:34:20,369][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-16 14:34:20,409][src.pipeline][INFO] - RAGPipeline ready model=qwen2.5:1.5b, top_k=3, alpha=0.75
+[2026-06-16 14:34:20,415][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 14:34:20,417][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 14:34:20,418][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-16 14:34:20,418][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=100, seed=42)
+[2026-06-16 14:34:23,125][src.fetcher][INFO] - Loaded 100 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-16 14:34:23,130][__main__][INFO] - Fetched 100 docs → 197 chunks
+[2026-06-16 14:34:23,132][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 14:34:23,147][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 14:34:23,148][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-16 14:34:23,149][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-16 14:34:23,319][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-16 14:34:23,320][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-16 14:34:23,320][src.indexer][INFO] - Generating embeddings...
+[2026-06-16 14:34:29,034][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-16 14:34:29,042][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-16 14:34:30,172][src.indexer][INFO] - Indexed 197 chunks into 'PythonDocs' ✓
+[2026-06-16 14:34:30,173][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-16 14:34:41,985][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:35:03,167][src.evaluate][INFO] - Running RAGAS... (chunk512_ov64_a0.75, judge=llama3.2:1b, embed=nomic-embed-text, timeout=90s)
+[2026-06-16 14:35:03,217][src.evaluate][INFO] - Loaded 5 eval questions from data/eval.yaml
+[2026-06-16 14:35:03,217][src.evaluate][INFO] -   Q: How do I read a CSV file with pandas?
+[2026-06-16 14:35:03,217][src.pipeline][INFO] - Query: How do I read a CSV file with pandas?
+[2026-06-16 14:35:08,259][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:35:14,514][src.evaluate][INFO] -   Q: How do I handle missing values in a pandas DataFrame?
+[2026-06-16 14:35:14,515][src.pipeline][INFO] - Query: How do I handle missing values in a pandas DataFrame?
+[2026-06-16 14:35:19,063][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:35:36,344][src.evaluate][INFO] -   Q: How do I filter rows in a pandas DataFrame?
+[2026-06-16 14:35:36,345][src.pipeline][INFO] - Query: How do I filter rows in a pandas DataFrame?
+[2026-06-16 14:35:41,450][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:35:57,468][src.evaluate][INFO] -   Q: How do I merge two pandas DataFrames?
+[2026-06-16 14:35:57,469][src.pipeline][INFO] - Query: How do I merge two pandas DataFrames?
+[2026-06-16 14:36:04,632][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:36:32,643][src.evaluate][INFO] -   Q: How do I group data and calculate statistics in pandas?
+[2026-06-16 14:36:32,644][src.pipeline][INFO] - Query: How do I group data and calculate statistics in pandas?
+[2026-06-16 14:36:39,381][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:37:53,643][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:37:59,546][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:38:05,260][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:38:09,684][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:38:14,195][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:38:18,356][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:38:42,499][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-16 14:38:47,184][ragas.llms.output_parser][WARNING] - Failed to parse output. Returning None.
+[2026-06-16 14:38:47,714][src.indexer][INFO] - Weaviate connection closed
+[2026-06-16 14:38:51,940][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<as_completed.<locals>.sema_coro() running at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:37> wait_for=<_GatheringFuture finished result=[None]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,943][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-7' coro=<as_completed.<locals>.sema_coro() running at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:36> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,950][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,951][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,951][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,952][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,952][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-16 14:38:51,953][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>

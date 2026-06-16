@@ -1,0 +1,6 @@
+# configs/chunker/default.yaml
+# This is the default configuration for the chunker component.
+_target_: src.indexer.DocumentChunker
+chunk_size: 512
+overlap: 64
+splitter: python    # or: python, markdown, token

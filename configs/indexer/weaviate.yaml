@@ -1,0 +1,8 @@
+# configs/indexer/weaviate.yaml
+_target_: src.indexer.WeaviateIndexer
+host: "localhost"
+port: 8080
+embed_model: "all-MiniLM-L6-v2" # embedding model from sentence-transformers
+class_name: "PythonDocs" # name of the collection in Weaviate
+dimension: 384 # dimension of the embedding model
+batch_size: 64 # texts at a time to the embedding mode

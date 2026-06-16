@@ -1,0 +1,61 @@
+[2026-06-13 17:17:40,868][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-13 17:17:40,923][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-13 17:17:40,927][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-13 17:17:40,928][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-13 17:17:43,176][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-13 17:17:43,235][src.pipeline][INFO] - RAGPipeline ready model=llama3.2:1b, top_k=3, alpha=0.75
+[2026-06-13 17:17:43,240][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 17:17:43,245][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 17:17:43,246][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-13 17:17:43,246][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=20, seed=42)
+[2026-06-13 17:17:45,728][src.fetcher][INFO] - Loaded 20 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-13 17:17:45,732][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 17:17:45,747][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 17:17:45,747][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-13 17:17:45,750][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-13 17:17:45,921][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-13 17:17:45,922][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-13 17:17:45,922][src.indexer][INFO] - Generating embeddings...
+[2026-06-13 17:17:47,163][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-13 17:17:47,167][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 17:17:48,252][src.indexer][INFO] - Indexed 55 chunks into 'PythonDocs' ✓
+[2026-06-13 17:17:48,253][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-13 17:17:48,744][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:18:08,269][src.evaluate][INFO] - Running RAGAS evaluation...
+[2026-06-13 17:18:08,277][src.evaluate][INFO] - Loaded 18 eval questions from data/eval.yaml
+[2026-06-13 17:18:08,277][src.evaluate][INFO] -   Q: How do I read a CSV file with pandas?
+[2026-06-13 17:18:08,277][src.pipeline][INFO] - Query: How do I read a CSV file with pandas?
+[2026-06-13 17:18:08,610][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:18:30,562][src.evaluate][INFO] -   Q: How do I handle missing values in a pandas DataFrame?
+[2026-06-13 17:18:30,562][src.pipeline][INFO] - Query: How do I handle missing values in a pandas DataFrame?
+[2026-06-13 17:18:30,882][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:18:50,904][src.evaluate][INFO] -   Q: How do I filter rows in a pandas DataFrame?
+[2026-06-13 17:18:50,905][src.pipeline][INFO] - Query: How do I filter rows in a pandas DataFrame?
+[2026-06-13 17:18:51,287][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:19:06,377][src.evaluate][INFO] -   Q: How do I merge two pandas DataFrames?
+[2026-06-13 17:19:06,378][src.pipeline][INFO] - Query: How do I merge two pandas DataFrames?
+[2026-06-13 17:19:06,723][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:19:37,106][src.evaluate][INFO] -   Q: How do I group data and calculate statistics in pandas?
+[2026-06-13 17:19:37,107][src.pipeline][INFO] - Query: How do I group data and calculate statistics in pandas?
+[2026-06-13 17:19:37,418][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:20:12,905][src.evaluate][INFO] -   Q: How do I train an XGBoost classifier in Python?
+[2026-06-13 17:20:12,906][src.pipeline][INFO] - Query: How do I train an XGBoost classifier in Python?
+[2026-06-13 17:20:13,295][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:20:39,659][src.evaluate][INFO] -   Q: How do I tune XGBoost hyperparameters?
+[2026-06-13 17:20:39,660][src.pipeline][INFO] - Query: How do I tune XGBoost hyperparameters?
+[2026-06-13 17:20:40,183][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:21:18,000][src.evaluate][INFO] -   Q: How do I split data into train and test sets with scikit-lea
+[2026-06-13 17:21:18,001][src.pipeline][INFO] - Query: How do I split data into train and test sets with scikit-learn?
+[2026-06-13 17:21:22,638][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:21:53,831][src.evaluate][INFO] -   Q: How do I scale features with scikit-learn?
+[2026-06-13 17:21:53,832][src.pipeline][INFO] - Query: How do I scale features with scikit-learn?
+[2026-06-13 17:21:58,365][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:22:42,286][src.evaluate][INFO] -   Q: How do I evaluate a classification model with scikit-learn?
+[2026-06-13 17:22:42,287][src.pipeline][INFO] - Query: How do I evaluate a classification model with scikit-learn?
+[2026-06-13 17:22:46,011][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:23:24,682][src.evaluate][INFO] -   Q: How do I read a JSON file into a pandas DataFrame?
+[2026-06-13 17:23:24,683][src.pipeline][INFO] - Query: How do I read a JSON file into a pandas DataFrame?
+[2026-06-13 17:23:28,989][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 17:23:57,059][src.evaluate][INFO] -   Q: How do I export a pandas DataFrame to a CSV file without the
+[2026-06-13 17:23:57,060][src.pipeline][INFO] - Query: How do I export a pandas DataFrame to a CSV file without the index?
+[2026-06-13 17:23:57,198][src.indexer][INFO] - Weaviate connection closed

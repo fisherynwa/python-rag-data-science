@@ -1,0 +1,69 @@
+[2026-06-14 01:29:40,666][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-14 01:29:40,709][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-14 01:29:40,714][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-14 01:29:40,714][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-14 01:29:42,807][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-14 01:29:42,847][src.pipeline][INFO] - RAGPipeline ready model=llama3.2:1b, top_k=3, alpha=0.75
+[2026-06-14 01:29:42,861][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-14 01:29:42,865][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-14 01:29:42,865][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-14 01:29:42,866][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=20, seed=42)
+[2026-06-14 01:29:45,245][src.fetcher][INFO] - Loaded 20 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-14 01:29:45,248][__main__][INFO] - Fetched 20 docs → 55 chunks
+[2026-06-14 01:29:45,251][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-14 01:29:45,285][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-14 01:29:45,286][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-14 01:29:45,287][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-14 01:29:45,465][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-14 01:29:45,466][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-14 01:29:45,467][src.indexer][INFO] - Generating embeddings...
+[2026-06-14 01:29:46,556][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-14 01:29:46,559][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-14 01:29:47,673][src.indexer][INFO] - Indexed 55 chunks into 'PythonDocs' ✓
+[2026-06-14 01:29:47,674][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-14 01:29:48,500][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:30:06,767][src.evaluate][INFO] - Running RAGAS evaluation... (chunk256_ov32_a0.75, judge=llama3.2:1b)
+[2026-06-14 01:30:07,090][src.evaluate][INFO] - Loaded 10 eval questions from data/eval.yaml
+[2026-06-14 01:30:07,091][src.evaluate][INFO] -   Q: How do I read a CSV file with pandas?
+[2026-06-14 01:30:07,091][src.pipeline][INFO] - Query: How do I read a CSV file with pandas?
+[2026-06-14 01:30:09,860][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:30:38,786][src.evaluate][INFO] -   Q: How do I handle missing values in a pandas DataFrame?
+[2026-06-14 01:30:38,786][src.pipeline][INFO] - Query: How do I handle missing values in a pandas DataFrame?
+[2026-06-14 01:30:39,431][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:31:06,348][src.evaluate][INFO] -   Q: How do I filter rows in a pandas DataFrame?
+[2026-06-14 01:31:06,348][src.pipeline][INFO] - Query: How do I filter rows in a pandas DataFrame?
+[2026-06-14 01:31:06,979][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:31:28,887][src.evaluate][INFO] -   Q: How do I merge two pandas DataFrames?
+[2026-06-14 01:31:28,888][src.pipeline][INFO] - Query: How do I merge two pandas DataFrames?
+[2026-06-14 01:31:29,538][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:32:09,380][src.evaluate][INFO] -   Q: How do I group data and calculate statistics in pandas?
+[2026-06-14 01:32:09,381][src.pipeline][INFO] - Query: How do I group data and calculate statistics in pandas?
+[2026-06-14 01:32:10,029][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:32:50,155][src.evaluate][INFO] -   Q: How do I concatenate two pandas DataFrames along rows versus
+[2026-06-14 01:32:50,156][src.pipeline][INFO] - Query: How do I concatenate two pandas DataFrames along rows versus columns?
+[2026-06-14 01:32:51,116][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:33:19,117][src.evaluate][INFO] -   Q: How do I apply a custom function to every row in a pandas Da
+[2026-06-14 01:33:19,118][src.pipeline][INFO] - Query: How do I apply a custom function to every row in a pandas DataFrame?
+[2026-06-14 01:33:19,706][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:33:32,943][src.evaluate][INFO] -   Q: How do I tune XGBoost hyperparameters?
+[2026-06-14 01:33:32,944][src.pipeline][INFO] - Query: How do I tune XGBoost hyperparameters?
+[2026-06-14 01:33:33,609][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:34:09,734][src.evaluate][INFO] -   Q: How do I split data into train and test sets with scikit-lea
+[2026-06-14 01:34:09,735][src.pipeline][INFO] - Query: How do I split data into train and test sets with scikit-learn?
+[2026-06-14 01:34:10,347][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:34:34,745][src.evaluate][INFO] -   Q: How do I scale features with scikit-learn?
+[2026-06-14 01:34:34,746][src.pipeline][INFO] - Query: How do I scale features with scikit-learn?
+[2026-06-14 01:34:35,309][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:35:10,738][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:35:18,707][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:35:22,535][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:35:52,016][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:36:04,847][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:36:15,504][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:36:45,079][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:36:55,252][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:36:59,569][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:37:31,400][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:38:12,527][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 01:38:18,660][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 02:08:19,049][src.indexer][INFO] - Weaviate connection closed

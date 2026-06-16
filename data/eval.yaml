@@ -1,0 +1,16 @@
+questions:
+- question: Design a computer program in Python to store and search for items in a shopping list.
+  ground_truth: "# Shopping list application \n\n# Declare a list to store all the items \nshopping_list = []\n\n# Function to add item to the list\ndef add_item(item):\n  shopping_list.append(item)\n  print(\"Item added!\")\n\n# Function to remove item from the list\ndef remove_item(item):\n  shopping_list.remove(item)\n  print(\"Item removed!\")\n\n# Function to search for an item in the list\ndef search_item(item):\n  if item in shopping_list:\n    print(\"Item found.\")\n  else:\n    print(\"Item not found.\")\n\n# Function to display all the items\ndef display_items():\n  print(\"Here is your list:\")\n  for item in shopping_list:\n    print(item)\n\n# Test functions \nadd_item(\"Milk\")\nadd_item(\"Bread\")\nremove_item(\"Milk\")\nsearch_item(\"Bread\")\ndisplay_items()\n\n# Output: \n# Item added!\n# Item added!\n# Item removed!\n# Item found.\n# Here is your list: \n# Bread"
+  weight: 1.0
+- question: Write a python program that calculates the average age of a group of people.
+  ground_truth: "def calculate_average_age(names, ages):\n    result = 0\n    for i in range(len(names)):\n        result += ages[i]\n    return round(result / len(names), 2)\n\nnames = ['Bob', 'Jack', 'John', 'David']\nages = [12, 27, 45, 16]\n\nprint(calculate_average_age(names, ages))"
+  weight: 1.0
+- question: Write a Python program to analyze the sentiment of a text document using Natural Language Processing.
+  ground_truth: "import nltk\nfrom textblob import TextBlob\n\ndef analyze_sentiment(text):\n    sentiment = TextBlob(text).sentiment\n    if sentiment.polarity > 0:\n        print('Positive sentiment')\n    elif sentiment.polarity < 0:\n        print('Negative sentiment')\n    else:\n        print('Neutral sentiment')"
+  weight: 1.0
+- question: Create a Python function to return all valid permutation of a given string
+  ground_truth: "def find_permutations(s): \n\tres = [] \n\tfind_permutations_recur(s, \"\", res) \n\treturn res \n\ndef find_permutations_recur(str, prefix, res): \n\tn = len(str)\n\tif n == 0:\n\t\tres.append(prefix) \n\t\treturn\n\n\tfor i in range(n):\n\t\tremaining = str[0:i] + str[i+1:] \n\t\tfind_permutations_recur(remaining, prefix + str[i], res)"
+  weight: 1.0
+- question: Create a Python program that finds the low and high stock prices from a given array of stock prices.
+  ground_truth: "def min_max_stock_price(arr):\n low = float('inf')\n high = float('-inf')\n \n for price in arr:\n low = min(low, price)\n high = max(high, price)\n \n return [low, high]\n \nprint(min_max_stock_price([9, 15, 7, 8, 13, 5])) # Output: [5, 15]"
+  weight: 1.0

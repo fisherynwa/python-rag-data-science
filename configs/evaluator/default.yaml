@@ -1,0 +1,3 @@
+# configs/evaluator/default.yaml
+_target_: src.evaluate.RAGASEvaluator
+judge_model: llama3.2:1b

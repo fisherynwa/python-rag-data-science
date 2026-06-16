@@ -1,0 +1,24 @@
+[2026-06-13 16:40:26,471][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-13 16:40:26,563][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-13 16:40:26,571][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-13 16:40:26,572][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-13 16:40:28,992][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-13 16:40:29,050][src.pipeline][INFO] - RAGPipeline ready model=llama3.2, top_k=3, alpha=0.75
+[2026-06-13 16:40:29,068][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 16:40:29,074][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 16:40:29,075][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-13 16:40:29,075][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=20, seed=42)
+[2026-06-13 16:40:31,815][src.fetcher][INFO] - Loaded 20 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-13 16:40:31,819][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 16:40:31,872][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 16:40:31,873][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-13 16:40:31,875][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-13 16:40:32,068][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-13 16:40:32,070][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-13 16:40:32,070][src.indexer][INFO] - Generating embeddings...
+[2026-06-13 16:40:33,522][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-13 16:40:33,529][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 16:40:34,635][src.indexer][INFO] - Indexed 28 chunks into 'PythonDocs' ✓
+[2026-06-13 16:40:34,637][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-13 16:40:34,758][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+[2026-06-13 16:40:34,760][src.indexer][INFO] - Weaviate connection closed

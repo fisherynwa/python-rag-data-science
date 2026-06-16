@@ -1,0 +1,38 @@
+fetcher:
+  _target_: src.fetcher.HuggingFaceFetcher
+  dataset_name: iamtarun/python_code_instructions_18k_alpaca
+  max_rows: 20
+  seed: 42
+  keywords:
+  - python
+  - pandas
+  - scikit-learn
+  - sklearn
+chunker:
+  _target_: src.indexer.DocumentChunker
+  chunk_size: 512
+  overlap: 64
+  splitter: python
+indexer:
+  _target_: src.indexer.WeaviateIndexer
+  host: localhost
+  port: 8080
+  embed_model: all-MiniLM-L6-v2
+  class_name: PythonDocs
+  dimension: 384
+  batch_size: 64
+pipeline:
+  _target_: src.pipeline.RAGPipeline
+  model: llama3.2:1b
+  temperature: 0.1
+  top_k: 3
+  alpha: 0.75
+  num_predict: 1000
+  system_prompt: 'You are a Python expert. Answer the question using only the context
+    below. Always include a working code example. If the context is not relevant,
+    say so - do not invent answers. Context: {context}'
+evaluator:
+  _target_: src.evaluate.RAGASEvaluator
+mlflow:
+  tracking_uri: http://localhost:5000
+  experiment_name: python-rag

@@ -1,0 +1,11 @@
+defaults:
+  - fetcher: huggingface
+  - chunker: default
+  - indexer: weaviate
+  - pipeline: default
+  - evaluator: default
+  - _self_
+
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "python-rag"

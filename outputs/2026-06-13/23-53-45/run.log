@@ -1,0 +1,254 @@
+[2026-06-13 23:53:45,865][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+[2026-06-13 23:53:45,921][src.indexer][INFO] - Connected to Weaviate: localhost:8080
+[2026-06-13 23:53:45,924][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cpu
+[2026-06-13 23:53:45,924][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[2026-06-13 23:53:47,999][src.indexer][INFO] - Embedding model loaded: all-MiniLM-L6-v2
+[2026-06-13 23:53:48,039][src.pipeline][INFO] - RAGPipeline ready model=llama3.2:1b, top_k=3, alpha=0.75
+[2026-06-13 23:53:48,062][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 23:53:48,065][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 23:53:48,066][src.pipeline][INFO] - RAGPipeline attached to Weaviate collection: PythonDocs
+[2026-06-13 23:53:48,066][src.fetcher][INFO] - Loading dataset: iamtarun/python_code_instructions_18k_alpaca (max_rows=20, seed=42)
+[2026-06-13 23:53:50,381][src.fetcher][INFO] - Loaded 20 rows from iamtarun/python_code_instructions_18k_alpaca
+[2026-06-13 23:53:50,383][__main__][INFO] - Fetched 20 docs → 55 chunks
+[2026-06-13 23:53:50,385][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 23:53:50,429][httpx][INFO] - HTTP Request: DELETE http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 23:53:50,430][src.indexer][INFO] - Deleted collection 'PythonDocs'
+[2026-06-13 23:53:50,432][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 404 Not Found"
+[2026-06-13 23:53:50,621][httpx][INFO] - HTTP Request: POST http://localhost:8080/v1/schema "HTTP/1.1 200 OK"
+[2026-06-13 23:53:50,622][src.indexer][INFO] - Collection 'PythonDocs' created
+[2026-06-13 23:53:50,622][src.indexer][INFO] - Generating embeddings...
+[2026-06-13 23:53:51,508][src.indexer][INFO] - Uploading to Weaviate...
+[2026-06-13 23:53:51,511][httpx][INFO] - HTTP Request: GET http://localhost:8080/v1/schema/PythonDocs "HTTP/1.1 200 OK"
+[2026-06-13 23:53:52,630][src.indexer][INFO] - Indexed 55 chunks into 'PythonDocs' ✓
+[2026-06-13 23:53:52,631][src.pipeline][INFO] - Query: How do I read a CSV with missing values?
+[2026-06-13 23:54:02,650][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:54:22,236][src.evaluate][INFO] - Running RAGAS evaluation... (chunk256_ov32_a0.75, judge=llama3.2:1b)
+[2026-06-13 23:54:22,292][src.evaluate][INFO] - Loaded 18 eval questions from data/eval.yaml
+[2026-06-13 23:54:22,292][src.evaluate][INFO] -   Q: How do I read a CSV file with pandas?
+[2026-06-13 23:54:22,293][src.pipeline][INFO] - Query: How do I read a CSV file with pandas?
+[2026-06-13 23:54:24,851][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:54:43,943][src.evaluate][INFO] -   Q: How do I handle missing values in a pandas DataFrame?
+[2026-06-13 23:54:43,944][src.pipeline][INFO] - Query: How do I handle missing values in a pandas DataFrame?
+[2026-06-13 23:54:46,728][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:55:13,518][src.evaluate][INFO] -   Q: How do I filter rows in a pandas DataFrame?
+[2026-06-13 23:55:13,518][src.pipeline][INFO] - Query: How do I filter rows in a pandas DataFrame?
+[2026-06-13 23:55:16,383][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:55:29,932][src.evaluate][INFO] -   Q: How do I merge two pandas DataFrames?
+[2026-06-13 23:55:29,933][src.pipeline][INFO] - Query: How do I merge two pandas DataFrames?
+[2026-06-13 23:55:32,778][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:55:51,928][src.evaluate][INFO] -   Q: How do I group data and calculate statistics in pandas?
+[2026-06-13 23:55:51,929][src.pipeline][INFO] - Query: How do I group data and calculate statistics in pandas?
+[2026-06-13 23:55:53,564][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:56:32,687][src.evaluate][INFO] -   Q: How do I train an XGBoost classifier in Python?
+[2026-06-13 23:56:32,688][src.pipeline][INFO] - Query: How do I train an XGBoost classifier in Python?
+[2026-06-13 23:56:35,433][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:56:56,743][src.evaluate][INFO] -   Q: How do I tune XGBoost hyperparameters?
+[2026-06-13 23:56:56,744][src.pipeline][INFO] - Query: How do I tune XGBoost hyperparameters?
+[2026-06-13 23:57:00,061][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:57:34,544][src.evaluate][INFO] -   Q: How do I split data into train and test sets with scikit-lea
+[2026-06-13 23:57:34,544][src.pipeline][INFO] - Query: How do I split data into train and test sets with scikit-learn?
+[2026-06-13 23:57:37,542][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:58:00,334][src.evaluate][INFO] -   Q: How do I scale features with scikit-learn?
+[2026-06-13 23:58:00,335][src.pipeline][INFO] - Query: How do I scale features with scikit-learn?
+[2026-06-13 23:58:03,844][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:58:24,818][src.evaluate][INFO] -   Q: How do I evaluate a classification model with scikit-learn?
+[2026-06-13 23:58:24,818][src.pipeline][INFO] - Query: How do I evaluate a classification model with scikit-learn?
+[2026-06-13 23:58:27,941][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:58:51,463][src.evaluate][INFO] -   Q: How do I read a JSON file into a pandas DataFrame?
+[2026-06-13 23:58:51,463][src.pipeline][INFO] - Query: How do I read a JSON file into a pandas DataFrame?
+[2026-06-13 23:58:54,971][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:59:19,530][src.evaluate][INFO] -   Q: How do I export a pandas DataFrame to a CSV file without the
+[2026-06-13 23:59:19,531][src.pipeline][INFO] - Query: How do I export a pandas DataFrame to a CSV file without the index?
+[2026-06-13 23:59:22,264][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:59:33,020][src.evaluate][INFO] -   Q: How do I change the data type of a column in a pandas DataFr
+[2026-06-13 23:59:33,021][src.pipeline][INFO] - Query: How do I change the data type of a column in a pandas DataFrame?
+[2026-06-13 23:59:36,248][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-13 23:59:50,197][src.evaluate][INFO] -   Q: How do I concatenate two pandas DataFrames along rows versus
+[2026-06-13 23:59:50,197][src.pipeline][INFO] - Query: How do I concatenate two pandas DataFrames along rows versus columns?
+[2026-06-13 23:59:53,765][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:00:22,035][src.evaluate][INFO] -   Q: How do I apply a custom function to every row in a pandas Da
+[2026-06-14 00:00:22,035][src.pipeline][INFO] - Query: How do I apply a custom function to every row in a pandas DataFrame?
+[2026-06-14 00:00:24,084][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:00:35,317][src.evaluate][INFO] -   Q: How do I handle imbalanced data using scikit-learn metrics?
+[2026-06-14 00:00:35,318][src.pipeline][INFO] - Query: How do I handle imbalanced data using scikit-learn metrics?
+[2026-06-14 00:00:38,381][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:01:22,385][src.evaluate][INFO] -   Q: How do I convert categorical text variables into numbers usi
+[2026-06-14 00:01:22,386][src.pipeline][INFO] - Query: How do I convert categorical text variables into numbers using scikit-learn?
+[2026-06-14 00:01:26,032][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:01:48,828][src.evaluate][INFO] -   Q: How do I build a machine learning pipeline in scikit-learn?
+[2026-06-14 00:01:48,828][src.pipeline][INFO] - Query: How do I build a machine learning pipeline in scikit-learn?
+[2026-06-14 00:01:51,901][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:02:38,096][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:02:51,852][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:02:54,264][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:03:09,124][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:03:17,960][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:03:32,228][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:03:38,003][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:03:39,737][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:03:41,440][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,370][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 501 Not Implemented"
+[2026-06-14 00:07:46,378][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,380][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,381][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,382][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,383][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,384][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,385][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,386][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,387][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,389][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,390][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,391][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,392][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,392][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,393][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,394][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,395][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,396][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,397][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,397][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,398][httpx][INFO] - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[2026-06-14 00:07:46,765][src.indexer][INFO] - Weaviate connection closed
+[2026-06-14 00:07:49,680][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-2' coro=<as_completed.<locals>.sema_coro() running at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:37> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,735][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,735][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-27' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,735][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,736][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-38' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,736][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-59' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,737][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-17' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,737][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-49' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,738][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-70' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,738][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,738][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-28' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,738][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-39' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,739][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-60' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,739][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-18' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture finished result=[None]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,740][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-50' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,740][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-71' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,740][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,741][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-29' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,741][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-40' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,741][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-61' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,741][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-19' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,742][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-51' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,742][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-72' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,742][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,742][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-30' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,743][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-7' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,743][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-41' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,743][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-62' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,744][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-20' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,744][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-52' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,744][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-73' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,744][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,745][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-31' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,745][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,745][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-42' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,745][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-63' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,746][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-21' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,746][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-53' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,746][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-32' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,747][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,747][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-43' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,747][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-64' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,747][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-22' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,748][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-54' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,748][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,748][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-33' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,748][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-44' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,749][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-65' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,749][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-23' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,749][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-55' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,749][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-69' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,750][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-34' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,750][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-45' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,750][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-66' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,750][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-24' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,751][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-56' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,751][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,751][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-35' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,751][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,752][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-46' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,752][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-67' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,752][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-25' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future finished result=True> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,752][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-48' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,753][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-57' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,753][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-36' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,753][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-14' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,754][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-47' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,754][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-68' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,754][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-26' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,754][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-58' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
+[2026-06-14 00:07:49,755][asyncio][ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-37' coro=<as_completed.<locals>.sema_coro() done, defined at /mnt/c/Users/vkvut/Documents/My_codes/git_projects/python-rag-simple/.venv/lib/python3.12/site-packages/ragas/executor.py:35> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[as_completed.<locals>._on_completion() at /home/vkvut/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/tasks.py:618]>
