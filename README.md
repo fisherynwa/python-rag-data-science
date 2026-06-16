@@ -1,10 +1,10 @@
 # Python Data Extraction RAG
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org)
+[![Python](https://img.shields.io/badge/Python-3.12%2B-blue?logo=python&logoColor=white)](https://www.python.org)
 [![Topic: RAG](https://img.shields.io/badge/Topic-RAG%20%2F%20AI-orange)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)
 [![GitHub issues](https://img.shields.io/github/issues/fisherynwa/python-rag-datascience?color=red)](https://github.com/fisherynwa/python-rag-datascience/issues)
 [![GitHub forks](https://img.shields.io/github/forks/fisherynwa/python-rag-datascience?style=social)](https://github.com/fisherynwa/python-rag-datascience/network/members)
-[![GitHub stars](https://img.shields.io/github/stars/fisherynwa/python-rag-datascience?style=social)](https://github.com/fisherynwa/python-rag-datascience/stargazers)
+
 
 A retrieval-augmented generation (RAG) system that answers Python data-extraction
 questions (pandas, CSV/JSON, scikit-learn) by grounding a local LLM in a corpus of
