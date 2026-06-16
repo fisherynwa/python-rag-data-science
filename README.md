@@ -44,6 +44,9 @@ HuggingFace dataset
 | Tracking     | MLflow (Docker)                                  | Logs metrics + params per run |
 | Config       | Hydra                                            | Every component swappable from the CLI |
 
+
+---
+![MLflow held-out evaluation](img/mlflow_heldout.png)
 ---
 
 ## How to run
@@ -100,6 +103,8 @@ share that fit *whole* inside each candidate chunk size:
 | 1024       | 91%                 |
 
 
+![chunk-distribution](img/chunk_dist.png)
+
 Why 512. At 256, 78% of documents would be split, for code answers, that often
 means cutting a code block in half, so the model retrieves a fragment without the rest.
 At 512, two-thirds of documents stay intact while only the longest are split. Smaller
@@ -112,8 +117,7 @@ chunk size to keep the boundary-overlap ratio (512-64; 1024-128) constant when c
 
 ## Evaluation: results and methodology
 
-Metrics are computed with RAGAS using a **local** Ollama judge (no paid API).
-NOTE: results are based on small sample sizes due to hardware limitations.
+Metrics use RAGAS with a local Ollama judge (no paid API). With 5–12 questions and a small local judge, the scores are noisy — read them as relative comparisons between runs, not absolute quality scores.
 
 | Run                                   | answer_relevancy | context_precision |
 |---------------------------------------|-----------------:|------------------:|
