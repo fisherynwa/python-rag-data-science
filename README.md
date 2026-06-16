@@ -1,14 +1,15 @@
 # Python Data Extraction RAG
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue?logo=python&logoColor=white)](https://www.python.org)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://www.docker.com)
 [![Topic: RAG](https://img.shields.io/badge/Topic-RAG%20%2F%20AI-orange)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)
-[![GitHub issues](https://img.shields.io/github/issues/fisherynwa/python-rag-datascience?color=red)](https://github.com/fisherynwa/python-rag-datascience/issues)
-[![GitHub forks](https://img.shields.io/github/forks/fisherynwa/python-rag-datascience?style=social)](https://github.com/fisherynwa/python-rag-datascience/network/members)
+[![Weaviate](https://img.shields.io/badge/Weaviate-VectorDB-00C9A7?logo=weaviate&logoColor=white)](https://weaviate.io)
+[![MLflow](https://img.shields.io/badge/MLflow-Tracking-0194E2?logo=mlflow&logoColor=white)](https://mlflow.org)
 
 
 A retrieval-augmented generation (RAG) system that answers Python data-extraction
 questions (pandas, CSV/JSON, scikit-learn) by grounding a local LLM in a corpus of
-Python Q&A pairs. Fully local (using llama) and free no paid API keys required.
+Python Q&A pairs. Fully local using local models (Qwen / Llama via Ollama) and free no paid API keys required.
 
 ---
 
@@ -47,16 +48,21 @@ HuggingFace dataset
 
 ## How to run
 
+Requires: `uv`, `Docker`, `Ollama`, `Python 3.12`.
+
 ```bash
-# 1. Start services
+# 1. Install dependencies
+uv sync
+
+# 2. Start services
 docker compose up -d            # Weaviate (8080 + 50051 gRPC) + MLflow (5000)
 
-# 2. Pull models (once)
+# 3. Pull models (once)
 ollama pull qwen2.5:1.5b        # generation
 ollama pull llama3.2:1b         # RAGAS judge
 ollama pull nomic-embed-text    # RAGAS judge embeddings
 
-# 3. Run
+# 4. Run
 uv run python run.py                          # defaults
 uv run python run.py fetcher.max_rows=200     # bigger corpus
 uv run python run.py chunker.chunk_size=1024 chunker.overlap=128
@@ -93,6 +99,7 @@ share that fit *whole* inside each candidate chunk size:
 | **512**    | **69%**             |
 | 1024       | 91%                 |
 
+
 Why 512. At 256, 78% of documents would be split, for code answers, that often
 means cutting a code block in half, so the model retrieves a fragment without the rest.
 At 512, two-thirds of documents stay intact while only the longest are split. Smaller
@@ -100,7 +107,8 @@ chunks give sharper embeddings (more precise retrieval) but split more documents
 larger chunks keep answers whole but blur the embedding. 512 and 1024 are the
 meaningful candidates (128/256 fragment too aggressively); overlap is scaled with
 chunk size to keep the boundary-overlap ratio (512-64; 1024-128) constant when comparing them.
----
+
+----
 
 ## Evaluation: results and methodology
 
@@ -119,14 +127,14 @@ NOTE: results are based on small sample sizes due to hardware limitations.
 1. **Retrieval is robust.** `context_precision` stays at 1.0 across configurations —
    the hybrid retrieval consistently pulls relevant context. Retrieval is not the
    bottleneck.
-2. **The generation model is the quality changer.** Swapping the generator from
+2. **The generation model is the quality driver.** Swapping the generator from
    llama3.2:1b to qwen2.5:1.5b roughly doubled `answer_relevancy` (0.32 → 0.69) with
    no change to retrieval. For this task, generation-model choice drives answer
    quality. Perhaps using a larger model may improve the pipeline's performance.
 
 **Self-preference bias.** The first run used the same model to both generate and
 judge, which inflates scores. Later
-runs keep generator != judge so the evaluation is independent. For more information, users can find here: [SELF-PREFERENCE BIAS IN LLM-AS-A-JUDGE]https://arxiv.org/pdf/2410.21819
+runs keep generator != judge so the evaluation is independent. For more information, users can find here: [Self-Preference Bias in LLM-as-a-Judge](https://arxiv.org/pdf/2410.21819)
 
 ---
 
