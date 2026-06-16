@@ -112,8 +112,7 @@ chunk size to keep the boundary-overlap ratio (512-64; 1024-128) constant when c
 
 ## Evaluation: results and methodology
 
-Metrics are computed with RAGAS using a **local** Ollama judge (no paid API).
-NOTE: results are based on small sample sizes due to hardware limitations.
+Metrics use RAGAS with a local Ollama judge (no paid API). With 5–12 questions and a small local judge, the scores are noisy — read them as relative comparisons between runs, not absolute quality scores.
 
 | Run                                   | answer_relevancy | context_precision |
 |---------------------------------------|-----------------:|------------------:|
