@@ -72,7 +72,7 @@ uv run python run.py chunker.chunk_size=1024 chunker.overlap=128
 ```
 
 Results print as a scorecard and log to MLflow at `http://localhost:5000` (run names
-encode the config, e.g. `chunk512_ov64_a0.75`).
+encode the config; e.g., `chunk512_ov64_a0.75`).
 
 ---
 
@@ -128,7 +128,7 @@ Metrics use RAGAS with a local Ollama judge (no paid API). With 5–12 questions
 
 **Two findings.**
 
-1. **Retrieval is robust.** `context_precision` stays at 1.0 across configurations —
+1. **Retrieval is robust.** `context_precision` stays at 1.0 across configurations;
    the hybrid retrieval consistently pulls relevant context. Retrieval is not the
    bottleneck.
 2. **The generation model is the quality driver.** Swapping the generator from
@@ -138,7 +138,7 @@ Metrics use RAGAS with a local Ollama judge (no paid API). With 5–12 questions
 
 **Self-preference bias.** The first run used the same model to both generate and
 judge, which inflates scores. Later
-runs keep generator != judge so the evaluation is independent. For more information, users can find here: [Self-Preference Bias in LLM-as-a-Judge](https://arxiv.org/pdf/2410.21819)
+runs keep generator != judge so the evaluation is independent. More information can be found here: [Self-Preference Bias in LLM-as-a-Judge](https://arxiv.org/pdf/2410.21819)
 
 ---
 
